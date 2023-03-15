@@ -45,7 +45,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
                       trailing: IconButton(
                         icon: Icon(Icons.add),
                         onPressed: () {
-                          viewModell.addToCart(item);
+                          Provider.of(context).addToCart(item);
                         },
                       ),
                     ));

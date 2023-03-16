@@ -38,8 +38,16 @@ class ItemsViewModel extends ChangeNotifier {
     notifyListeners();
   }
 
-  void removeFromCart(CartItem cartItem) {
-    _cartItems.remove(cartItem);
+  void removeFromCart(CartItem cartItem1) {
+    final index = _cartItems
+        .indexWhere((cartItem) => cartItem.item.id == cartItem1.item.id);
+
+    if (_cartItems[index].quantity == 1)
+      _cartItems.remove(cartItem1);
+    else
+      _cartItems[index].quantity--;
+
+    //_cartItems.remove(cartItem);
     notifyListeners();
   }
 

@@ -30,7 +30,7 @@ class _ItemsScreenState extends State<ItemsScreen> {
                 },
               ),
             ],
-            title: Text("Itemss"),
+            title: Text("Itemssssss"),
           ),
           body: Consumer<ItemsViewModel>(builder: (context, viewModell, child) {
             return ListView.builder(
@@ -42,11 +42,15 @@ class _ItemsScreenState extends State<ItemsScreen> {
                     child: ListTile(
                       title: Text(item.name),
                       subtitle: Text("${item.price}"),
-                      trailing: IconButton(
-                        icon: Icon(Icons.add),
-                        onPressed: () {
-                          Provider.of(context).addToCart(item);
-                        },
+                      trailing: InkWell(
+                        splashColor: Colors.blue,
+                        child: IconButton(
+                          icon: Icon(Icons.add),
+                          onPressed: () {
+                            Provider.of<ItemsViewModel>(context, listen: false)
+                                .addToCart(item);
+                          },
+                        ),
                       ),
                     ));
               },

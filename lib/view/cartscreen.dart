@@ -87,7 +87,8 @@ class _CartScreenState extends State<CartScreen>
                                       color: Color.fromARGB(255, 228, 9, 9),
                                     ),
                                     onPressed: () {
-                                      Provider.of(context)
+                                      Provider.of<ItemsViewModel>(context,
+                                              listen: false)
                                           .removeFromCart(cartItem);
                                     },
                                   ),
